@@ -14,6 +14,7 @@ package("bullet3")
         table.insert(configs, "-DBUILD_SHARED_LIBS=" .. (package:config("shared") and "ON" or "OFF"))
         table.insert(configs, "-DCMAKE_BUILD_TYPE=" .. (package:debug() and "Debug" or "Release"))
         import("package.tools.cmake").install(package, configs)
+print(os.files(path.join(package:installdir(), "**")))
     end)
 
     on_test(function (package)
